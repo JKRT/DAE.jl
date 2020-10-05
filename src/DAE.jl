@@ -36,7 +36,8 @@ using ExportAll
 
 include("DAE_Interface.jl")
 include("./Values.jl")
-include("./Values.jl")
+include("./ClassInf.jl")
+
 import ..ClassInf
 import ..Values
 import Absyn
@@ -159,7 +160,7 @@ end
   end
 end
 
-const dummyInfo = Absyn.SOURCEINFO("", false, 0, 0, 0, 0, 0.0)::Info
+const dummyInfo = Absyn.SOURCEINFO("", false, 0, 0, 0, 0, 0.0)::Absyn.Info
 const emptyElementSource = SOURCE(dummyInfo, nil, nothing #= Prefix.NOCOMPPRE() =#, nil, nil, nil, nil)::ElementSource
 
 @Uniontype SymbolicOperation begin

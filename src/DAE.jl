@@ -2313,6 +2313,15 @@ const emptyCref = CREF_IDENT("", T_UNKNOWN_DEFAULT, nil)::ComponentRef
 
 FunctionTree = Dict{Absyn.Path, Function}
 
+function ElementSource_getInfo(source::ElementSource)::SourceInfo
+  local info::SourceInfo
+  @match SOURCE(info = info) = source
+  info
+end
+
+function ElementSource_createElementSource(info::SourceInfo)::ElementSource
+  return SOURCE(info, nil, nil, nil, nil, nil, nil)
+end
 
 @exportAll()
 

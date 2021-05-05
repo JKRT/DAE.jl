@@ -821,7 +821,6 @@ the dimension of the output and the inline type of the function =#
   end
 
   @Record T_ARRAY begin
-
     ty #= Type =#::Type
     dims #= dims =#::Dimensions
   end
@@ -1042,28 +1041,23 @@ const FUNCTION_ATTRIBUTES_BUILTIN_IMPURE = FUNCTION_ATTRIBUTES(NO_INLINE(), fals
 
 @Uniontype Dimension begin
   @Record DIM_INTEGER begin
-
     integer::ModelicaInteger
   end
 
   @Record DIM_BOOLEAN begin
-
   end
 
   @Record DIM_ENUM begin
-
     enumTypeName #= The enumeration type name. =#::Absyn.Path
     literals #= A list of the literals in the enumeration. =#::List{String}
     size #= The size of the enumeration. =#::ModelicaInteger
   end
 
   @Record DIM_EXP begin
-
     exp::Exp
   end
 
   @Record DIM_UNKNOWN begin
-
     #= DimensionBinding dimensionBinding \"unknown dimension can be bound or unbound\";
     =#
   end
@@ -1299,7 +1293,6 @@ When making additions, update at least the following functions:
   end
 
   @Record CREF begin
-
     componentRef::ComponentRef
     ty::Type
   end
@@ -1848,7 +1841,6 @@ CREF_IDENT(..) is used for non-qualifed component names, e.g. x =#
   end
 
   @Record CREF_IDENT begin
-
     ident::String
     identType #= type of the identifier, without considering the subscripts =#::Type
     subscriptLst::List{Subscript}

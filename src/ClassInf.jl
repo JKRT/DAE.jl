@@ -39,6 +39,8 @@ using ExportAll
 import Absyn
 import SCode
 
+const State = SMNode
+
 #= - Machine states, the string contains the classname. =#
 @Uniontype SMNode begin
   @Record UNKNOWN begin

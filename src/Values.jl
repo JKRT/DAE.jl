@@ -39,7 +39,7 @@ using ExportAll
 @UniontypeDecl IntRealOp
 
 import Absyn
-import ..AbsynUtil
+# import ..AbsynUtil
 
 @Uniontype Value begin
   @Record INTEGER begin

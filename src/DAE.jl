@@ -785,34 +785,28 @@ the dimension of the output and the inline type of the function =#
 #= models the different front-end and back-end types =#
 @Uniontype Type begin
   @Record T_INTEGER begin
-
     varLst::List{Var}
   end
 
   @Record T_REAL begin
-
     varLst::List{Var}
   end
 
   @Record T_STRING begin
-
     varLst::List{Var}
   end
 
   @Record T_BOOL begin
-
     varLst::List{Var}
   end
 
   @Record T_CLOCK begin
-
     varLst::List{Var}
     #=  BTH Since Clock type has no attributes, this is not really needed, but at the moment kept for unified treatment of fundamental types
     =#
   end
 
   @Record T_ENUMERATION begin
-
     index #= the enumeration value index, SOME for element, NONE() for type =#::Option{ModelicaInteger}
     path #= enumeration path =#::Absyn.Path
     names #= names =#::List{String}
@@ -826,22 +820,18 @@ the dimension of the output and the inline type of the function =#
   end
 
   @Record T_NORETCALL begin
-
   end
 
   @Record T_UNKNOWN begin
-
   end
 
   @Record T_COMPLEX begin
-
     complexClassType #= The type of a class =#::ClassInf.SMNode
     varLst #= The variables of a complex type =#::List{Var}
     equalityConstraint::EqualityConstraint
   end
 
   @Record T_SUBTYPE_BASIC begin
-
     complexClassType #= The type of a class =#::ClassInf.SMNode
     varLst #= complexVarLst; The variables of a complex type! Should be empty, kept here to verify! =#::List{Var}
     complexType #= complexType; A complex type can be a subtype of another (primitive) type (through extends) =#::Type
@@ -1262,12 +1252,10 @@ When making additions, update at least the following functions:
 * ExpressionDump.printExpStr =#
 @Uniontype Exp begin
   @Record ICONST begin
-
     integer #= Integer constants =#::ModelicaInteger
   end
 
   @Record RCONST begin
-
     real #= Real constants =#::ModelicaReal
   end
 
@@ -1298,7 +1286,6 @@ When making additions, update at least the following functions:
   end
 
   @Record BINARY begin
-
     exp1::Exp
     operator::Operator
     exp2::Exp
@@ -2304,6 +2291,10 @@ const crefTimeState = CREF_IDENT("time", T_REAL_DEFAULT, nil)::ComponentRef
 const emptyCref = CREF_IDENT("", T_UNKNOWN_DEFAULT, nil)::ComponentRef
 
 FunctionTree = Dict{Absyn.Path, Function}
+
+function makeDummyCrefIdentOfTypeReal(name::String)
+  CREF_IDENT(name, T_REAL_DEFAULT, nil)
+end
 
 
 @exportAll()
